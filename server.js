@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
 
 require("dotenv/config");
 
@@ -17,6 +19,22 @@ app.use(express.urlencoded({ extended: true }));
 // Setting static assets directories
 app.use(express.static(path.join(__dirname, "/public")));
 
+// Passport config
+require("./middlewares/passport")(passport);
+
+// Express session middleware
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 mongoose
   .connect(db, {
     useUnifiedTopology: true,
@@ -31,6 +49,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+<<<<<<< HEAD
 app.get("/register", (req, res) => {
   res.render("register");
 });
@@ -52,6 +71,9 @@ app.post("/login", (req, res) => {
   };
   console.log("login:", user);
 });
+=======
+app.use("/auth", require("./middlewares/auth"));
+>>>>>>> 363bcbb7059373f6197089d87b90fa02aa127a95
 
 const PORT = process.env.PORT || 5000;
 
