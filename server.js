@@ -47,6 +47,11 @@ app.use((req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
+
 mongoose
   .connect(db, {
     useUnifiedTopology: true,

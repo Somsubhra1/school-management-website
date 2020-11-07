@@ -1,7 +1,6 @@
 module.exports = {
   ensureAuthenticated: function (req, res, next) {
     if (req.isAuthenticated()) {
-      res.locals.isAuthenticated = true;
       next();
     } else {
       req.flash("error_msg", "Please login first");

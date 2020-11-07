@@ -23,6 +23,10 @@
           <a class="nav-link" href="#">Link</a>
         </li> -->
       </ul>
+      <% if (locals.isAuthenticated) { %>
+      <a href="/auth/logout">Logout</a>
+      <% } else { %>
+
       <ul class="navbar-nav">
         <li class="navbar-item">
           <button
@@ -35,6 +39,7 @@
           </button>
         </li>
       </ul>
+      <% } %>
     </div>
   </div>
 </nav>
