@@ -49,7 +49,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-<<<<<<< HEAD
 app.get("/register", (req, res) => {
   res.render("register");
 });
@@ -71,9 +70,7 @@ app.post("/login", (req, res) => {
   };
   console.log("login:", user);
 });
-=======
 app.use("/auth", require("./middlewares/auth"));
->>>>>>> 363bcbb7059373f6197089d87b90fa02aa127a95
 
 const PORT = process.env.PORT || 5000;
 
