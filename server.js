@@ -3,6 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 require("dotenv/config");
 
@@ -31,6 +32,17 @@ app.use(
   })
 );
 
+// Connect flash middleware
+app.use(flash());
+
+// Setting Global vars for flash messages
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
+});
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,28 +61,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-app.post("/register", (req, res) => {
-  const user = {
-    usertype: req.body.usertype,
-    username: req.body.username,
-    password: req.body.password,
-  };
-  console.log("register:", user);
-});
-
-app.post("/login", (req, res) => {
-  const user = {
-    usertype: req.body.usertype,
-    username: req.body.username,
-    password: req.body.password,
-  };
-  console.log("login:", user);
-});
-app.use("/auth", require("./middlewares/auth"));
+app.use("/auth", require("./routes/auth"));
 
 const PORT = process.env.PORT || 5000;
 
