@@ -28,7 +28,7 @@ mongoose
   .catch((err) => console.log(`Error connecting mongodb ` + err));
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.render("index");
 });
 
 const PORT = process.env.PORT || 5000;
