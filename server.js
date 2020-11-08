@@ -63,7 +63,7 @@ mongoose
   .catch((err) => console.log(`Error connecting mongodb ` + err));
 
 app.get("/", (req, res) => {
-  res.render("yearbook/yearbook");
+  res.render("index");
 });
 
 app.use("/auth", require("./routes/auth"));
