@@ -1,0 +1,101 @@
+.testimonial {
+  margin: 0 70px 20px 0;
+  text-align: center;
+  position: relative;
+}
+.testimonial:before {
+  content: "\201D";
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: #d37602;
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: -52px;
+}
+.testimonial .description {
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #553e4e;
+  font-size: 16px;
+  color: #736d6d;
+  line-height: 30px;
+  position: relative;
+}
+.testimonial .description:before {
+  content: "";
+  border-top: 8px solid #d37602;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.testimonial .description:after {
+  content: "";
+  width: 19px;
+  height: 22px;
+  border: 1px solid #553e4e;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  margin-left: -2.5px;
+  position: absolute;
+  bottom: -17.5px;
+  left: 50%;
+  z-index: -1;
+  transform: rotate(45deg) translateX(-50%);
+}
+.testimonial .pic {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #d37602;
+  margin-bottom: 15px;
+}
+.testimonial .pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.testimonial .title {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #d37602;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 7px 0;
+}
+.testimonial .post {
+  display: block;
+  font-size: 15px;
+  color: #736d6d;
+  text-transform: capitalize;
+}
+.owl-theme .owl-controls {
+  margin-top: 0;
+}
+.owl-theme .owl-controls .owl-page span {
+  width: 35px;
+  height: 15px;
+  background: #553e4e;
+  border-radius: 0;
+  opacity: 0.8;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease 0s;
+}
+.owl-theme .owl-controls .owl-page.active span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #d37602;
+}
+@media only screen and (max-width: 479px) {
+  .testimonial .description {
+    padding: 10px;
+  }
+}
