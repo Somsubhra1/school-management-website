@@ -5,7 +5,7 @@
   src: url("../fonts/KGSecondChancesSketch.ttf") format("truetype");
 }
 
-.notice-board {
+.board {
   font-family: "EB Garamond", serif;
   font-size: 24px;
   font-style: italic;
@@ -13,6 +13,11 @@
   background-color: black;
   border: 5px solid white;
   border-radius: 30px;
+
+  cursor: pointer;
+
+  height: 100%;
+  width: 100%;
 }
 
 .headline {
@@ -23,4 +28,5 @@
   font-style: normal;
   text-decoration: underline;
   flex-grow: 1;
+  justify-content: center;
 }
