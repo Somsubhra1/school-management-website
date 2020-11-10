@@ -20,6 +20,86 @@
   <body>
     <%- include("partials/navbar") %> <%- include("partials/login-modal") %>
 
+    <div class="container mt-5">
+      <h1 class="display-4 text-center">Rampurhat Sreeja</h1>
+      <img src="https://via.placeholder.com/1200x200.png?text=Rampurhat+Sreeja" alt="" width="100%" />
+      <p class="lead text-center">
+        Rampurhat J.L. Vidyabhaban, Rampurhat Municipality, Ward No.-4, Birbhum, 731224, West Bengal, India
+      </p>
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <div class="row mb-3">
+            <div class="col-md-12 col-6">
+              <div class="card" style="width: 100%">
+                <div class="card-body">
+                  <h5 class="card-title">Admissions</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">for 2021-22 batch</h6>
+                  <p class="card-text">
+                    Admission starts from 23rd December, 2020. Forms avaliable at our branch.
+                  </p>
+                  <a href="#" class="card-link btn btn-primary">More Info</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-6">
+              <div class="card ab-box mt-3" style="width: 100%">
+                <div class="card-body">
+                  <img src="https://via.placeholder.com/500x300.png?text=Advertisement+1" class="card-img-top" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-12">
+          <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <% for( let i = 0; i < 5; i++ ) { %>
+                <li data-target="#carouselExampleCaptions" data-slide-to="<%= i %>" 
+                <% if (i == 0) { %>
+                  class="active"
+                <% } %> ></li>
+              <% } %>
+            </ol>
+            <div class="carousel-inner">
+              <% for( let i = 0; i < 5; i++ ) { %>
+                <div class="carousel-item
+                <% if (i == 0) { %>
+                  active
+                <% } %>">
+                  <img src="https://via.placeholder.com/1000x600.png" class="d-block w-100" alt="..." />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Event <%= i+1 %> </h5>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron jumbotron-fluid mt-3 py-2">
+        <div class="container">
+          <h1 class="display-4 text-center">Live Stream</h1>
+          <iframe
+          src="https://www.youtube.com/embed/ScMzIvxBSi4" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          width="100%" height="500px"></iframe>
+        </div>
+      </div>
+
+    </div>
+
     <!-- jQuery, Popper.js, and Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
