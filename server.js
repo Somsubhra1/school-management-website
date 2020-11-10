@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Setting static assets directories
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Passport config
 require("./middlewares/passport")(passport);
@@ -64,10 +64,6 @@ mongoose
 
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-app.get("/yearbook", (req, res) => {
-  res.render("yearbook/yearbook");
 });
 
 app.use("/auth", require("./routes/auth"));
