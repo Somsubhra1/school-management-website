@@ -20,9 +20,15 @@
   <body>
     <%- include("partials/navbar") %> <%- include("partials/login-modal") %>
 
+    <!-- main container -->
     <div class="container mt-5">
+      <!-- school name -->
       <h1 class="display-4 text-center">Rampurhat Sreeja</h1>
+
+      <!-- school image -->
       <img src="https://via.placeholder.com/1200x200.png?text=Rampurhat+Sreeja" alt="" width="100%" />
+
+      <!-- address line -->
       <p class="lead text-center">
         Rampurhat J.L. Vidyabhaban, Rampurhat Municipality, Ward No.-4, Birbhum, 731224, West Bengal, India
       </p>
@@ -30,6 +36,7 @@
         <div class="col-md-4 col-12">
           <div class="row mb-3">
             <div class="col-md-12 col-6">
+              <!-- admission card -->
               <div class="card" style="width: 100%">
                 <div class="card-body">
                   <h5 class="card-title">Admissions</h5>
@@ -42,6 +49,7 @@
               </div>
             </div>
             <div class="col-md-12 col-6">
+              <!-- ad card -->
               <div class="card ab-box mt-3" style="width: 100%">
                 <div class="card-body">
                   <img src="https://via.placeholder.com/500x300.png?text=Advertisement+1" class="card-img-top" alt="...">
@@ -51,6 +59,7 @@
           </div>
         </div>
         <div class="col-md-8 col-12">
+          <!-- event images carousel -->
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <% for( let i = 0; i < 5; i++ ) { %>
@@ -86,6 +95,7 @@
         </div>
       </div>
 
+      <!-- live stream box -->
       <div class="jumbotron jumbotron-fluid mt-3 py-2">
         <div class="container">
           <h1 class="display-4 text-center">Live Stream</h1>
@@ -97,8 +107,27 @@
           width="100%" height="500px"></iframe>
         </div>
       </div>
+      
 
+      <!-- ad row -->
+      <div class="row">
+        <div class="col-6">
+          <div class="card ab-box mt-3" style="width: 100%">
+            <div class="card-body">
+              <img src="https://via.placeholder.com/500x300.png?text=Advertisement+2" class="card-img-top" alt="...">
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card ab-box mt-3" style="width: 100%">
+            <div class="card-body">
+              <img src="https://via.placeholder.com/500x300.png?text=Advertisement+3" class="card-img-top" alt="...">
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
+
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
     <script
