@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap");
+
+@font-face {
+  font-family: "KGSecondChancesSketch";
+  src: url("../fonts/KGSecondChancesSketch.ttf") format("truetype");
+}
+
+.notice-board {
+  font-family: "EB Garamond", serif;
+  font-size: 24px;
+  font-style: italic;
+  color: white;
+  background-color: black;
+  border: 5px solid white;
+  border-radius: 30px;
+}
+
+.headline {
+  text-align: center;
+  font-family: "KGSecondChancesSketch" !important;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: underline;
+  flex-grow: 1;
+}
