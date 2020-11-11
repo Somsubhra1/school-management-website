@@ -66,6 +66,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/guardian", (req, res) =>{
+  res.render("guardian/guardian");
+});
+
 app.use("/auth", require("./routes/auth"));
 
 const PORT = process.env.PORT || 5000;
