@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const { ensureAuthenticated, isGuardian } = require("./middlewares/auth");
 
 require("dotenv/config");
 
@@ -66,12 +67,17 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/guardian", (req, res) => {
-  res.render("guardian/guardian");
-});
-
 app.use("/auth", require("./routes/auth"));
-app.use("/student", require("./routes/student"));
+app.use(
+  "/guardian",
+  [ensureAuthenticated, isGuardian],
+  require("./routes/guardian")
+);
+app.use(
+  "/guardian/students",
+  [ensureAuthenticated, isGuardian],
+  require("./routes/student")
+);
 
 const PORT = process.env.PORT || 5000;
 

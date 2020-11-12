@@ -11,6 +11,7 @@ router.get("/register", (req, res) => {
 router.post("/register", (req, res) => {
   generateStudentID(req.body.class_name, req.body.joined_year, (studentID) => {
     const newStudent = new Student({
+      guardian: req.user.id,
       studentID: studentID,
       name: req.body.name,
       class_name: req.body.class_name,
@@ -21,7 +22,7 @@ router.post("/register", (req, res) => {
       .save()
       .then((student) => {
         req.flash("success_msg", "Successfully added student");
-        res.redirect("/student/register");
+        res.redirect("/guardian/students/register");
       })
       .catch((err) => {
         console.log("Error saving Student to db: " + err);
