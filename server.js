@@ -36,18 +36,11 @@ app.use(
 // Connect flash middleware
 app.use(flash());
 
-// Setting Global vars for flash messages
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  next();
-});
-
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Setting Global vars for flash messages and user auth status
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
   res.locals.success_msg = req.flash("success_msg");
@@ -71,8 +64,16 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", require("./routes/auth"));
-app.use("/guardian", [ensureAuthenticated, isGuardian], require("./routes/guardian"));
-app.use("/guardian/students", [ensureAuthenticated, isGuardian], require("./routes/student"));
+app.use(
+  "/guardian",
+  [ensureAuthenticated, isGuardian],
+  require("./routes/guardian")
+);
+app.use(
+  "/guardian/students",
+  [ensureAuthenticated, isGuardian],
+  require("./routes/student")
+);
 
 const PORT = process.env.PORT || 5000;
 

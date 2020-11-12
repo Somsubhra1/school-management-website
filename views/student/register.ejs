@@ -3,7 +3,10 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -19,16 +22,16 @@
   </head>
   <body>
     <div class="container mt-5 pt-5">
-			<%- include("../partials/navbar") %> 
-      <% include("../partials/messages") %>
+      <%- include("../partials/navbar") %>
 
+      <form id="loginForm" action="/guardian/students/register" method="POST">
+        <%- include("../partials/messages") %>
 
-			<form id="loginForm" action="/guardian/students/register" method="POST">
-				<div class="form-group">
+        <div class="form-group">
           <label for="nameInput">Student Name</label>
           <input name="name" type="text" class="form-control" id="nameInput" />
-				</div>
-				
+        </div>
+
         <div class="form-group">
           <label for="classInput">Class</label>
           <select name="class_name" class="custom-select" id="classInput">
@@ -42,13 +45,18 @@
             <option value="FOU">Class Four</option>
           </select>
         </div>
-        
+
         <div class="form-group">
           <label for="yearInput">Year of Joining</label>
-          <input name="joined_year" type="number" class="form-control" id="yearInput" />
+          <input
+            name="joined_year"
+            type="number"
+            class="form-control"
+            id="yearInput"
+          />
         </div>
 
-				<button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Register</button>
       </form>
     </div>
 
