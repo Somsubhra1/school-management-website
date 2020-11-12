@@ -20,9 +20,8 @@
   <body>
     <div class="container mt-5 pt-5">
 			<%- include("../partials/navbar") %> 
-			<% if (typeof errors != "undefined") { %> <% errors.forEach(error => { %>
-      <h5><%= error.msg %></h5>
-      <% }) %> <% } %>
+      <% include("../partials/messages") %>
+
 
 			<form id="loginForm" action="/guardian/students/register" method="POST">
 				<div class="form-group">

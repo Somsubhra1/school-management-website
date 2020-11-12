@@ -50,6 +50,9 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
   next();
 });
 
@@ -68,16 +71,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", require("./routes/auth"));
-app.use(
-  "/guardian",
-  [ensureAuthenticated, isGuardian],
-  require("./routes/guardian")
-);
-app.use(
-  "/guardian/students",
-  [ensureAuthenticated, isGuardian],
-  require("./routes/student")
-);
+app.use("/guardian", [ensureAuthenticated, isGuardian], require("./routes/guardian"));
+app.use("/guardian/students", [ensureAuthenticated, isGuardian], require("./routes/student"));
 
 const PORT = process.env.PORT || 5000;
 
