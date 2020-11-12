@@ -66,11 +66,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/guardian", (req, res) =>{
+app.get("/guardian", (req, res) => {
   res.render("guardian/guardian");
 });
 
 app.use("/auth", require("./routes/auth"));
+app.use("/student", require("./routes/student"));
 
 const PORT = process.env.PORT || 5000;
 

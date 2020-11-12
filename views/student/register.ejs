@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/navbar.css" />
+
+    <title>Rampurhat Sreeja</title>
+  </head>
+  <body>
+    <div class="container mt-5 pt-5">
+			<%- include("../partials/navbar") %> 
+			<% if (typeof errors != "undefined") { %> <% errors.forEach(error => { %>
+      <h5><%= error.msg %></h5>
+      <% }) %> <% } %>
+
+			<form id="loginForm" action="/student/register" method="POST">
+				<div class="form-group">
+          <label for="nameInput">Student Name</label>
+          <input name="name" type="text" class="form-control" id="nameInput" />
+				</div>
+				
+        <div class="form-group">
+          <label for="classInput">Class</label>
+          <select name="class_name" class="custom-select" id="classInput">
+            <option selected value="KOR">Korak (Playschool)</option>
+            <option value="ANA">Anandapaath (Nursery)</option>
+            <option value="SAH">Sahajpaath (Kinder Garten 1)</option>
+            <option value="NAT">Natunpaath (Kinder Garten 2)</option>
+            <option value="ONE">Class One</option>
+            <option value="TWO">Class Two</option>
+            <option value="THR">Class Three</option>
+            <option value="FOU">Class Four</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="yearInput">Year of Joining</label>
+          <input name="joined_year" type="number" class="form-control" id="yearInput" />
+        </div>
+
+				<button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
