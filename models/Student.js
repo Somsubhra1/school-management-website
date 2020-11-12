@@ -8,6 +8,11 @@ const StudentSchema = new Schema({
   class_name: String,
   joined_year: Number,
 
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+
   registration_date: {
     type: Date,
     default: Date.now,
