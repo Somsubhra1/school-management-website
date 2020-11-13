@@ -1,7 +1,7 @@
+const { showGuardianDashboard } = require("../controllers/guardian");
+
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-  res.render("guardian/guardian");
-});
+router.get("/", showGuardianDashboard);
 
 module.exports = router;
