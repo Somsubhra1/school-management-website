@@ -159,3 +159,22 @@ function postDashboardToggle(e) {
     document.getElementById("postDashboard").style.display = "block";
   }
 }
+
+document.getElementById("postNotice").addEventListener("click", () => {
+  const dashboardCheck = document.getElementById("dashboardCheck");
+  const noticeBoardCheck = document.getElementById("noticeBoardCheck");
+
+  const notices = [];
+  document.querySelectorAll("#notice-row textarea").forEach((notice) => {
+    notices.push(notice.value);
+  });
+
+  if (dashboardCheck.checked) {
+    const students = [];
+    document.querySelectorAll("#table-body input[type=checkbox]").forEach((student) => {
+      if (student.checked) {
+        students.push(student.id);
+      }
+    });
+  }
+});
