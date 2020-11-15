@@ -122,3 +122,17 @@ function sortTable(n) {
     }
   }
 }
+
+document.getElementById("selectAll").addEventListener("click", () => {
+  document.querySelectorAll("#table-body tr").forEach((row) => {
+    const checkb = row.firstElementChild.firstElementChild;
+    checkb.checked = true;
+  });
+});
+
+document.getElementById("unselectAll").addEventListener("click", () => {
+  document.querySelectorAll("#table-body tr").forEach((row) => {
+    const checkb = row.firstElementChild.firstElementChild;
+    checkb.checked = false;
+  });
+});
