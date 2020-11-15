@@ -177,6 +177,24 @@ document.getElementById("postNotice").addEventListener("click", () => {
         console.log("Success:", data);
       });
   }
+
+  if (noticeBoardCheck.checked) {
+    fetch("/admin/notice/global", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        notices,
+      }),
+    })
+      .then((response) => response.json)
+      .then((data) => {
+        console.log("Success:", data);
+      });
+  }
+
+  location.reload();
 });
 
 let noticeCount = 1;

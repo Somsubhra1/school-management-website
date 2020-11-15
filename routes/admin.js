@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Student = require("../models/Student");
+const Notice = require("../models/Notice");
 
 router.get("/", (req, res) => {
   res.render("admin/dashboard");
@@ -43,6 +44,17 @@ router.post("/notice/students", (req, res) => {
       }
     );
   }
+});
+
+router.post("/notice/global", (req, res) => {
+  const noticesArr = req.body.notices;
+  Notice.create({ body: noticesArr }, (err, success) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(success);
+    }
+  });
 });
 
 module.exports = router;
