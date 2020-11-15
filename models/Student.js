@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Notice = require("./Notice").schema;
 
 const Schema = mongoose.Schema;
 

@@ -47,9 +47,12 @@
       <div class="row mt-3" id="notice-row">
         <div class="input-group mb-2 mr-sm-2">
           <div class="input-group-prepend">
-            <div class="input-group-text">1.</div>
+            <span class="input-group-text">1.</span>
           </div>
           <textarea class="form-control" name="notice_1" id="notice_1" rows="2"></textarea>
+          <div class="input-group-append">
+            <span class="input-group-text bg-danger text-white" onclick="deleteNoticeRow(this)"><i class="fas fa-times"></i></span>
+          </div>
         </div>
         <button class="btn btn-primary mt-2 mr-2" id="addMore"><i class="fas fa-plus"></i> Add more Notice rows</button>
         <button class="btn btn-success mt-2 ml-2" id="postNotice">Post Notice</button>

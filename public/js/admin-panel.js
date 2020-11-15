@@ -137,21 +137,6 @@ document.getElementById("unselectAll").addEventListener("click", () => {
   });
 });
 
-let noticeCount = 1;
-document.getElementById("addMore").addEventListener("click", (e) => {
-  noticeCount++;
-  const newNoticeDiv = document.createElement("div");
-  newNoticeDiv.classList = "input-group mb-2 mr-sm-2";
-  newNoticeDiv.innerHTML = `
-    <div class="input-group-prepend">
-      <div class="input-group-text">${noticeCount}.</div>
-    </div>
-    <textarea class="form-control" name="notice_${noticeCount}" id="notice_${noticeCount}" rows="2"></textarea>
-  `;
-
-  document.getElementById("notice-row").insertBefore(newNoticeDiv, e.target);
-});
-
 function postDashboardToggle(e) {
   if (!e.checked) {
     document.getElementById("postDashboard").style.display = "none";
@@ -193,3 +178,38 @@ document.getElementById("postNotice").addEventListener("click", () => {
       });
   }
 });
+
+let noticeCount = 1;
+document.getElementById("addMore").addEventListener("click", (e) => {
+  noticeCount++;
+  const newNoticeDiv = document.createElement("div");
+  newNoticeDiv.classList = "input-group mb-2 mr-sm-2";
+  newNoticeDiv.innerHTML = `
+    <div class="input-group-prepend">
+      <div class="input-group-text">${noticeCount}.</div>
+    </div>
+    <textarea class="form-control" name="notice_${noticeCount}" id="notice_${noticeCount}" rows="2"></textarea>
+    <div class="input-group-append">
+      <span class="input-group-text bg-danger text-white" onclick="deleteNoticeRow(this)"><i class="fas fa-times"></i></span>
+    </div>
+  `;
+
+  document.getElementById("notice-row").insertBefore(newNoticeDiv, e.target);
+});
+
+function deleteNoticeRow(e) {
+  const noticeRows = document.querySelectorAll("#notice-row .input-group");
+  if (noticeRows.length == 1) {
+    return;
+  } else {
+    e.parentNode.parentNode.remove();
+    const newNoticeRows = document.querySelectorAll("#notice-row .input-group");
+    let newNoticeCount = 0;
+    newNoticeRows.forEach((row) => {
+      newNoticeCount++;
+      const rowText = row.querySelector(".input-group-prepend .input-group-text");
+      rowText.innerHTML = `${newNoticeCount}.`;
+    });
+    noticeCount = newNoticeCount;
+  }
+}
