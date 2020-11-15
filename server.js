@@ -78,10 +78,7 @@ app.use(
   [ensureAuthenticated, isGuardian],
   require("./routes/student")
 );
-app.use(
-  "/admin",
-  /*[ensureAuthenticated, isAdmin],*/ require("./routes/admin")
-);
+app.use("/admin", [ensureAuthenticated, isAdmin], require("./routes/admin"));
 
 const PORT = process.env.PORT || 5000;
 
