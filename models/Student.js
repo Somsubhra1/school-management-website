@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Notice = require("./Notice").schema;
 
 const Schema = mongoose.Schema;
 
@@ -21,6 +22,16 @@ const StudentSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+
+  notices: [
+    {
+      body: [String],
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
 });
 
 module.exports = Student = mongoose.model("student", StudentSchema);

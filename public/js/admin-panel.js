@@ -176,5 +176,20 @@ document.getElementById("postNotice").addEventListener("click", () => {
         students.push(student.id);
       }
     });
+
+    fetch("/admin/notice/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        students,
+        notices,
+      }),
+    })
+      .then((response) => response.json)
+      .then((data) => {
+        console.log("Success:", data);
+      });
   }
 });
