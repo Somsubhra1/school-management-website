@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col-6">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" onclick="postDashboardToggle(this)" checked>
             <label class="form-check-label" for="defaultCheck1">
               Dashboard
             </label>
@@ -36,66 +36,79 @@
         </div>
         <div class="col-6">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
               Notice Board
             </label>
           </div>
         </div>
       </div>
-
-      <div class="row mt-3 justify-content-center align-items-end">
-        <div class="col-6">
-          <button class="btn btn-success btn-sm" id="selectAll">Select All</button>
-          <button class="btn btn-outline-warning btn-sm" id="unselectAll">Un-Select All</button>
+      
+      <div class="row mt-3" id="notice-row">
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">1.</div>
+          </div>
+          <textarea class="form-control" name="notice_1" id="notice_1" rows="2"></textarea>
         </div>
-        <div class="col-6">
-          <div class="form-inline
-          ">
-            <label class="sr-only" for="inputName">Name</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="inputName" placeholder="Search Guardian">
+        <button class="btn btn-primary mt-2 mr-2" id="addMore"><i class="fas fa-plus"></i> Add more Notice rows</button>
+        <button class="btn btn-success mt-2 ml-2" id="postNotice">Post Notice</button>
+      </div>
+
+      <section id="postDashboard">
+        <div class="row mt-3 justify-content-center align-items-end">
+          <div class="col-6">
+            <button class="btn btn-success btn-sm" id="selectAll">Select All</button>
+            <button class="btn btn-outline-warning btn-sm" id="unselectAll">Un-Select All</button>
+          </div>
+          <div class="col-6">
+            <div class="form-inline
+            ">
+              <label class="sr-only" for="inputName">Name</label>
+              <input type="text" class="form-control mb-2 mr-sm-2" id="inputName" placeholder="Search Guardian">
+    
+              <button type="button" class="btn btn-primary mb-2" id="search-btn">Search</button>
+            </div>
+          </div>
+        </div>
   
-            <button type="button" class="btn btn-primary mb-2" id="search-btn">Search</button>
+        <div class="row mt-4 justify-content-center">
+          <div class="col-lg-12">
+            <div class="table-responsive">
+              <table class="table" id="admin-panel-table">
+                <thead>
+                  <tr>
+                    <th>
+                    </th>
+                    <th>
+                      <button type="button" class="btn btn-light btn-block" id="student-col" onclick="sortTable(1)">
+                        <strong>Student</strong> <i class="float-right fas fa-sort"></i>
+                      </button>
+                    </th>
+                    <th>
+                      <button type="button" class="btn btn-light btn-block" id="guardian-col" onclick="sortTable(2)">
+                        <strong>Guardian</strong> <i class="float-right fas fa-sort"></i>
+                      </button>
+                    </th>
+                    <th>
+                      <button type="button" class="btn btn-light btn-block" id="class-col" onclick="sortTable(3)">
+                        <strong>Class</strong> <i class="float-right fas fa-sort"></i>
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                  <tr>
+                    <td colspan="4">
+                      Loading...!
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row mt-4 justify-content-center">
-        <div class="col-lg-12">
-          <div class="table-responsive">
-            <table class="table" id="admin-panel-table">
-              <thead>
-                <tr>
-                  <th>
-                  </th>
-                  <th>
-                    <button type="button" class="btn btn-light btn-block" id="student-col" onclick="sortTable(1)">
-                      <strong>Student</strong> <i class="float-right fas fa-sort"></i>
-                    </button>
-                  </th>
-                  <th>
-                    <button type="button" class="btn btn-light btn-block" id="guardian-col" onclick="sortTable(2)">
-                      <strong>Guardian</strong> <i class="float-right fas fa-sort"></i>
-                    </button>
-                  </th>
-                  <th>
-                    <button type="button" class="btn btn-light btn-block" id="class-col" onclick="sortTable(3)">
-                      <strong>Class</strong> <i class="float-right fas fa-sort"></i>
-                    </button>
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="table-body">
-                <tr>
-                  <td colspan="4">
-                    Loading...!
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+      </section>
 
     </div>
 

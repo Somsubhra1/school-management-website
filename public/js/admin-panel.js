@@ -136,3 +136,26 @@ document.getElementById("unselectAll").addEventListener("click", () => {
     checkb.checked = false;
   });
 });
+
+let noticeCount = 1;
+document.getElementById("addMore").addEventListener("click", (e) => {
+  noticeCount++;
+  const newNoticeDiv = document.createElement("div");
+  newNoticeDiv.classList = "input-group mb-2 mr-sm-2";
+  newNoticeDiv.innerHTML = `
+    <div class="input-group-prepend">
+      <div class="input-group-text">${noticeCount}.</div>
+    </div>
+    <textarea class="form-control" name="notice_${noticeCount}" id="notice_${noticeCount}" rows="2"></textarea>
+  `;
+
+  document.getElementById("notice-row").insertBefore(newNoticeDiv, e.target);
+});
+
+function postDashboardToggle(e) {
+  if (!e.checked) {
+    document.getElementById("postDashboard").style.display = "none";
+  } else {
+    document.getElementById("postDashboard").style.display = "block";
+  }
+}
