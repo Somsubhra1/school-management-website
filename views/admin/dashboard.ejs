@@ -13,6 +13,11 @@
       crossorigin="anonymous"
     />
 
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" 
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" 
+      crossorigin="anonymous">
+
     <title>Admin dashboard</title>
   </head>
   <body>
@@ -55,14 +60,31 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Select</th>
-                  <th>Student</th>
-                  <th>Guardian</th>
-                  <th>Class</th>
+                  <th>
+                  </th>
+                  <th>
+                    <button type="button" class="btn btn-light btn-block" id="student-col">
+                      <strong>Student</strong> <i class="float-right fas fa-sort"></i>
+                    </button>
+                  </th>
+                  <th>
+                    <button type="button" class="btn btn-light btn-block" id="guardian-col">
+                      <strong>Guardian</strong> <i class="float-right fas fa-sort"></i>
+                    </button>
+                  </th>
+                  <th>
+                    <button type="button" class="btn btn-light btn-block" id="class-col">
+                      <strong>Class</strong> <i class="float-right fas fa-sort"></i>
+                    </button>
+                  </th>
                 </tr>
               </thead>
               <tbody id="table-body">
-
+                <tr>
+                  <td colspan="4">
+                    Loading...!
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
