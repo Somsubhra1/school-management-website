@@ -45,13 +45,13 @@
       </div>
 
       <div class="row mt-3 justify-content-center">
-        <form class="form-inline
+        <div class="form-inline
         ">
-          <label class="sr-only" for="InputName">Name</label>
-          <input type="text" class="form-control mb-2 mr-sm-2" id="InputName" placeholder="Search Guardian">
+          <label class="sr-only" for="inputName">Name</label>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="inputName" placeholder="Search Guardian">
 
-          <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </form>
+          <button type="button" class="btn btn-primary mb-2" id="search-btn">Search</button>
+        </div>
       </div>
 
       <div class="row mt-4 justify-content-center">
@@ -61,6 +61,7 @@
               <thead>
                 <tr>
                   <th>
+                    <input type="checkbox" value="" id="allcheck" checked>
                   </th>
                   <th>
                     <button type="button" class="btn btn-light btn-block" id="student-col">

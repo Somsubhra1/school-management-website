@@ -95,3 +95,23 @@ document.getElementById("class-col").addEventListener("click", () => {
     document.getElementById("table-body").innerHTML = buildHtmlTable(data);
   });
 });
+
+document.getElementById("search-btn").addEventListener("click", () => {
+  const input = document.getElementById("inputName").value;
+
+  fetch("/admin/search?guardian=" + input)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length <= 0) {
+        document.getElementById("table-body").innerHTML = `
+          <tr>
+            <td colspan="4">
+              No results found...!
+            </td>
+          </tr>
+        `;
+      } else {
+        document.getElementById("table-body").innerHTML = buildHtmlTable(data);
+      }
+    });
+});
