@@ -57,24 +57,24 @@
       <div class="row mt-4 justify-content-center">
         <div class="col-lg-12">
           <div class="table-responsive">
-            <table class="table">
+            <table class="table" id="admin-panel-table">
               <thead>
                 <tr>
                   <th>
                     <input type="checkbox" value="" id="allcheck" checked>
                   </th>
                   <th>
-                    <button type="button" class="btn btn-light btn-block" id="student-col">
+                    <button type="button" class="btn btn-light btn-block" id="student-col" onclick="sortTable(1)">
                       <strong>Student</strong> <i class="float-right fas fa-sort"></i>
                     </button>
                   </th>
                   <th>
-                    <button type="button" class="btn btn-light btn-block" id="guardian-col">
+                    <button type="button" class="btn btn-light btn-block" id="guardian-col" onclick="sortTable(2)">
                       <strong>Guardian</strong> <i class="float-right fas fa-sort"></i>
                     </button>
                   </th>
                   <th>
-                    <button type="button" class="btn btn-light btn-block" id="class-col">
+                    <button type="button" class="btn btn-light btn-block" id="class-col" onclick="sortTable(3)">
                       <strong>Class</strong> <i class="float-right fas fa-sort"></i>
                     </button>
                   </th>

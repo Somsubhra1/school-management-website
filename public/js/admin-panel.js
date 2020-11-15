@@ -2,7 +2,7 @@ function buildHtmlRow(data) {
   return `
     <tr>
       <td>
-        <input type="checkbox" value="" id="defaultCheck1" checked>
+        <input type="checkbox" value="" id="${data._id}" name="" checked>
       </td>
       <td>${data.name}</td>
       <td>${data.guardian.name}</td>
@@ -32,70 +32,6 @@ window.addEventListener("load", (e) => {
   });
 });
 
-let currentStudentSort = null;
-let currentGuardianSort = null;
-let currentClassSort = null;
-
-document.getElementById("student-col").addEventListener("click", () => {
-  // re-setting
-  currentGuardianSort = null;
-  document.querySelector("#guardian-col i").classList = "float-right fas fa-sort";
-  currentClassSort = null;
-  document.querySelector("#class-col i").classList = "float-right fas fa-sort";
-
-  if (currentStudentSort === null) {
-    $("#student-col i").toggleClass("fa-sort fa-sort-up");
-    currentStudentSort = 1;
-  } else {
-    $("#student-col i").toggleClass("fa-sort-up fa-sort-down");
-    currentStudentSort *= -1;
-  }
-  getData().then((data) => {
-    data.sort((a, b) => (a.name > b.name ? currentStudentSort : -currentStudentSort));
-    document.getElementById("table-body").innerHTML = buildHtmlTable(data);
-  });
-});
-
-document.getElementById("guardian-col").addEventListener("click", () => {
-  // re-setting
-  currentStudentSort = null;
-  document.querySelector("#student-col i").classList = "float-right fas fa-sort";
-  currentClassSort = null;
-  document.querySelector("#class-col i").classList = "float-right fas fa-sort";
-
-  if (currentGuardianSort === null) {
-    $("#guardian-col i").toggleClass("fa-sort fa-sort-up");
-    currentGuardianSort = 1;
-  } else {
-    $("#guardian-col i").toggleClass("fa-sort-up fa-sort-down");
-    currentGuardianSort *= -1;
-  }
-  getData().then((data) => {
-    data.sort((a, b) => (a.name > b.name ? currentGuardianSort : -currentGuardianSort));
-    document.getElementById("table-body").innerHTML = buildHtmlTable(data);
-  });
-});
-
-document.getElementById("class-col").addEventListener("click", () => {
-  // re-setting
-  currentGuardianSort = null;
-  document.querySelector("#guardian-col i").classList = "float-right fas fa-sort";
-  currentStudentSort = null;
-  document.querySelector("#student-col i").classList = "float-right fas fa-sort";
-
-  if (currentClassSort === null) {
-    $("#class-col i").toggleClass("fa-sort fa-sort-up");
-    currentClassSort = 1;
-  } else {
-    $("#class-col i").toggleClass("fa-sort-up fa-sort-down");
-    currentClassSort *= -1;
-  }
-  getData().then((data) => {
-    data.sort((a, b) => (a.name > b.name ? currentClassSort : -currentClassSort));
-    document.getElementById("table-body").innerHTML = buildHtmlTable(data);
-  });
-});
-
 document.getElementById("search-btn").addEventListener("click", () => {
   const input = document.getElementById("inputName").value;
 
@@ -111,7 +47,78 @@ document.getElementById("search-btn").addEventListener("click", () => {
           </tr>
         `;
       } else {
-        document.getElementById("table-body").innerHTML = buildHtmlTable(data);
+        // document.getElementById("table-body").innerHTML = buildHtmlTable(data);
+        document.querySelectorAll("#table-body tr").forEach((row) => {
+          const id = row.firstElementChild.firstElementChild.id;
+          if (data.filter((d) => d._id === id).length > 0) {
+            row.style.display = "table-row";
+          } else {
+            row.style.display = "none";
+          }
+        });
       }
     });
 });
+
+function sortTable(n) {
+  var table,
+    rows,
+    switching,
+    i,
+    x,
+    y,
+    shouldSwitch,
+    dir,
+    switchcount = 0;
+  table = document.getElementById("admin-panel-table");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < rows.length - 1; i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
