@@ -68,17 +68,24 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", require("./routes/auth"));
-app.use(
-  "/guardian",
-  [ensureAuthenticated, isGuardian],
-  require("./routes/guardian")
-);
-app.use(
-  "/guardian/students",
-  [ensureAuthenticated, isGuardian],
-  require("./routes/student")
-);
-app.use("/admin", [ensureAuthenticated, isAdmin], require("./routes/admin"));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(
+    "/guardian",
+    [ensureAuthenticated, isGuardian],
+    require("./routes/guardian")
+  );
+  app.use(
+    "/guardian/students",
+    [ensureAuthenticated, isGuardian],
+    require("./routes/student")
+  );
+  app.use("/admin", [ensureAuthenticated, isAdmin], require("./routes/admin"));
+} else {
+  app.use("/guardian", require("./routes/guardian"));
+  app.use("/guardian/students", require("./routes/student"));
+  app.use("/admin", require("./routes/admin"));
+}
 
 const PORT = process.env.PORT || 5000;
 
