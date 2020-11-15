@@ -8,23 +8,20 @@ router.get("/", (req, res) => {
 
 router.get("/search", async function (req, res) {
   let guardian = req.query.guardian;
-
   let students;
 
   if (guardian) {
-    const guardianid = await User.findOne(
-      { type: "guardian", name: { $regex: "^" + guardian, $options: "i" } },
-      { _id: 1 }
-    ).exec();
-    students = await Student.find({ guardian: guardianid })
-      .populate("guardian", { name: 1, username: 1 })
-      .exec();
+    students = await Student.find().populate({
+      path: "guardian",
+      match: { name: { $regex: "^" + guardian, $options: "i" } },
+    });
   } else {
     students = await Student.find().populate("guardian", { name: 1, username: 1 }).exec();
   }
 
-  console.log(students);
+  students = students.filter((student) => student.guardian != null);
 
+  // console.log(students);
   res.json(students);
 });
 
