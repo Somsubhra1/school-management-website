@@ -16,7 +16,9 @@ router.get("/search", async function (req, res) {
       match: { name: { $regex: "^" + guardian, $options: "i" } },
     });
   } else {
-    students = await Student.find().populate("guardian", { name: 1, username: 1 }).exec();
+    students = await Student.find()
+      .populate("guardian", { name: 1, username: 1 })
+      .exec();
   }
 
   students = students.filter((student) => student.guardian != null);
@@ -25,24 +27,21 @@ router.get("/search", async function (req, res) {
   res.json(students);
 });
 
-router.post("/notice/students", (req, res) => {
-  console.log(req.body);
+router.post("/notice/students", async (req, res) => {
+  // console.log(req.body);
   const students = req.body.students;
   const noticesArr = req.body.notices;
-  console.log(noticesArr);
+  // console.log(students);
+  // console.log(noticesArr);
 
-  for (i in students) {
-    Student.findOneAndUpdate(
-      { _id: students[i] },
-      { $push: { notices: { body: noticesArr } } },
-      (err, success) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(success);
-        }
-      }
+  try {
+    await Student.updateMany(
+      { _id: { $in: students } },
+      { $push: { notices: { body: noticesArr } } }
     );
+    // console.log(updatedStudentNotices);
+  } catch (error) {
+    console.log(error);
   }
 });
 
