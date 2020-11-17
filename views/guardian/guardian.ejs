@@ -14,159 +14,352 @@
 
 </head>
 <body>
-    <div class="container mt-3">
-        <h1 class="display-4 text-center">Student Name</h1>
-        <p class="lead text-center">
-            <strong>Class</strong> - III <strong>Section</strong> - A <strong>Roll</strong> - 17
-        </p>
-
-        <div class="row">
-            <div class="col-md-4 col-12">
-                <div class="row mb-4">
-                    <div class="col-md-12 col-6">
-                    <!-- pickup details card -->
-                        <div class="card" style="width: 100%">
-                            <div class="card-body">
-                            <h2 class="card-title">Pickup Details</h2>
-                            <h6 class="card-subtitle mb-2 text-muted">Pickup Person</h6>
-                            <p class="card-text">
-                                <strong>Name - </strong> Arijt Bhowmik <br>
-                                <strong>Contact No. - </strong> 1234567890
-                            </p>
-                            <h6 class="card-subtitle mb-2 text-muted">Pickup Time</h6>
-                            <p class="card-text">
-                                4:30 pm
-                            </p>
-                            <a href="#" class="card-link btn btn-primary">Edit</a>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Student 1</a>
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="container mt-3">
+                <div class="col-lg-2 dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">eDiary
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Marks</a></li>
+                      <li><a href="#">Attendance</a></li>
+                      <li><a href="#">Holiday Calender</a></li>
+                      <li><a href="#">Dress code</a></li>
+                      <li><a href="#">Time Table</a></li>
+                    </ul>
+                </div>
+                <h1 class="display-4 text-center">Student Name 1</h1>
+                <p class="lead text-center">
+                    <strong>Class</strong> - III <strong>Section</strong> - A <strong>Roll</strong> - 17
+                </p>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="row mb-4">
+                            <div class="col-md-12 col-6">
+                            <!-- pickup details card -->
+                                <div class="card" style="width: 100%">
+                                    <div class="card-body">
+                                    <h2 class="card-title">Pickup Details</h2>
+                                    <h6 class="card-subtitle mb-2 text-muted">Pickup Person</h6>
+                                    <p class="card-text">
+                                        <strong>Name - </strong> Arijt Bhowmik <br>
+                                        <strong>Contact No. - </strong> 1234567890
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Pickup Time</h6>
+                                    <p class="card-text">
+                                        4:30 pm
+                                    </p>
+                                    <a href="#" class="card-link btn btn-primary">Edit</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+        
+                    <div class="col-md-8 mb-4 col-12">
+                        <iframe src="guardian-notice.html" style="height: 100%; width: 100%; border: 5px solid #ddd;"/>
+                        </iframe>
+                    </div>
+                </div>
+        
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Academic Syllabus</h2>
+                        <div class="syllabus">
+                            <strong>Subject 1</strong>
+                            <ol>
+                              <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
+                              <li>We thank all the patrons for the continuous support</li>
+                              <li>We hope to get yor love in futre as well</li>
+                            </ol>
+                            <strong>Subject 2</strong>
+                            <ol>
+                              <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
+                              <li>We thank all the patrons for the continuous support</li>
+                              <li>We hope to get yor love in futre as well</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Performance Report</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Assignments Submitted</th>
+                                        <th>Submission Date</th>
+                                        <th>Score</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Maths</td>
+                                        <td>20/01/2020</td>
+                                        <td>80/100</td>
+                                        <td>Good</td>
+                                    </tr>
+                                    <tr>
+                                        <td>English</td>
+                                        <td>20/01/2020</td>
+                                        <td>90/100</td>
+                                        <td>Very Good</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemistry</td>
+                                        <td>20/01/2020</td>
+                                        <td>60/100</td>
+                                        <td>Late submission and incomplete</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Outstanding Bill</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Month</th>
+                                        <th>Fee Amount</th>
+                                        <th>Paid Amount</th>
+                                        <th>Due Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>January</td>
+                                        <td>15000.00</td>
+                                        <td>15000.00</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>February</td>
+                                        <td>15000.00</td>
+                                        <td>15000.00</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>March</td>
+                                        <td>15000.00</td>
+                                        <td>10000.00</td>
+                                        <td>5000.00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="h5 table-info">
+                                        <td colspan="2" class="text-center">Total</td>
+                                        <td>45000.00</td>
+                                        <td>40000.00</td>
+                                        <td>5000.00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Links</h2>
+                        <strong>1st Term Exam Routine:</strong>
+                        <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/">https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a><br>
+                        <strong>2nd Term Exam Routine:</strong>
+                        <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/">https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a><br>
+                    </div>
                 </div>
             </div>
-
-            <div class="col-md-8 mb-4 col-12">
-                <iframe src="guardian-notice.html" style="height: 100%; width: 100%; border: 5px solid #ddd;"/>
-                </iframe>
-            </div>
+          </div>
         </div>
-
-        <div class="row mb-4 justify-content-center">
-            <div class="card col-lg-12">
-                <h2>Academic Syllabus</h2>
-                <div class="syllabus">
-                    <strong>Subject 1</strong>
-                    <ol>
-                      <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
-                      <li>We thank all the patrons for the continuous support</li>
-                      <li>We hope to get yor love in futre as well</li>
-                    </ol>
-                    <strong>Subject 2</strong>
-                    <ol>
-                      <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
-                      <li>We thank all the patrons for the continuous support</li>
-                      <li>We hope to get yor love in futre as well</li>
-                    </ol>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Student 2</a>
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="container mt-3">
+                <div class="col-lg-2 dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">eDiary
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Marks</a></li>
+                      <li><a href="#">Attendance</a></li>
+                      <li><a href="#">Holiday Calender</a></li>
+                      <li><a href="#">Dress code</a></li>
+                      <li><a href="#">Time Table</a></li>
+                    </ul>
+                </div>
+                <h1 class="display-4 text-center">Student Name 2</h1>
+                <p class="lead text-center">
+                    <strong>Class</strong> - IV <strong>Section</strong> - A <strong>Roll</strong> - 1
+                </p>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="row mb-4">
+                            <div class="col-md-12 col-6">
+                            <!-- pickup details card -->
+                                <div class="card" style="width: 100%">
+                                    <div class="card-body">
+                                    <h2 class="card-title">Pickup Details</h2>
+                                    <h6 class="card-subtitle mb-2 text-muted">Pickup Person</h6>
+                                    <p class="card-text">
+                                        <strong>Name - </strong> Arijt Bhowmik <br>
+                                        <strong>Contact No. - </strong> 1234567890
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Pickup Time</h6>
+                                    <p class="card-text">
+                                        4:30 pm
+                                    </p>
+                                    <a href="#" class="card-link btn btn-primary">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-8 mb-4 col-12">
+                        <iframe src="guardian-notice.html" style="height: 100%; width: 100%; border: 5px solid #ddd;"/>
+                        </iframe>
+                    </div>
+                </div>
+        
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Academic Syllabus</h2>
+                        <div class="syllabus">
+                            <strong>Subject 1</strong>
+                            <ol>
+                              <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
+                              <li>We thank all the patrons for the continuous support</li>
+                              <li>We hope to get yor love in futre as well</li>
+                            </ol>
+                            <strong>Subject 2</strong>
+                            <ol>
+                              <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
+                              <li>We thank all the patrons for the continuous support</li>
+                              <li>We hope to get yor love in futre as well</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Performance Report</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Assignments Submitted</th>
+                                        <th>Submission Date</th>
+                                        <th>Score</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Maths</td>
+                                        <td>20/01/2020</td>
+                                        <td>80/100</td>
+                                        <td>Good</td>
+                                    </tr>
+                                    <tr>
+                                        <td>English</td>
+                                        <td>20/01/2020</td>
+                                        <td>90/100</td>
+                                        <td>Very Good</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chemistry</td>
+                                        <td>20/01/2020</td>
+                                        <td>60/100</td>
+                                        <td>Late submission and incomplete</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Outstanding Bill</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Month</th>
+                                        <th>Fee Amount</th>
+                                        <th>Paid Amount</th>
+                                        <th>Due Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>January</td>
+                                        <td>15000.00</td>
+                                        <td>15000.00</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>February</td>
+                                        <td>15000.00</td>
+                                        <td>15000.00</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>March</td>
+                                        <td>15000.00</td>
+                                        <td>10000.00</td>
+                                        <td>5000.00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="h5 table-info">
+                                        <td colspan="2" class="text-center">Total</td>
+                                        <td>45000.00</td>
+                                        <td>40000.00</td>
+                                        <td>5000.00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4 justify-content-center">
+                    <div class="card col-lg-12">
+                        <h2>Links</h2>
+                        <strong>1st Term Exam Routine:</strong>
+                        <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/">https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a><br>
+                        <strong>2nd Term Exam Routine:</strong>
+                        <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/">https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a><br>
+                    </div>
                 </div>
             </div>
+          </div>
         </div>
-
-        <div class="row mb-4 justify-content-center">
-            <div class="card col-lg-12">
-                <h2>Performance Report</h2>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Assignments Submitted</th>
-                                <th>Submission Date</th>
-                                <th>Score</th>
-                                <th>Remarks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Maths</td>
-                                <td>20/01/2020</td>
-                                <td>80/100</td>
-                                <td>Good</td>
-                            </tr>
-                            <tr>
-                                <td>English</td>
-                                <td>20/01/2020</td>
-                                <td>90/100</td>
-                                <td>Very Good</td>
-                            </tr>
-                            <tr>
-                                <td>Chemistry</td>
-                                <td>20/01/2020</td>
-                                <td>60/100</td>
-                                <td>Late submission and incomplete</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-4 justify-content-center">
-            <div class="card col-lg-12">
-                <h2>Outstanding Bill</h2>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Month</th>
-                                <th>Fee Amount</th>
-                                <th>Paid Amount</th>
-                                <th>Due Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2020</td>
-                                <td>January</td>
-                                <td>15000.00</td>
-                                <td>15000.00</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>2020</td>
-                                <td>February</td>
-                                <td>15000.00</td>
-                                <td>15000.00</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>2020</td>
-                                <td>March</td>
-                                <td>15000.00</td>
-                                <td>10000.00</td>
-                                <td>5000.00</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr class="h5 table-info">
-                                <td colspan="2" class="text-center">Total</td>
-                                <td>45000.00</td>
-                                <td>40000.00</td>
-                                <td>5000.00</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-4 justify-content-center">
-            <div class="card col-lg-12">
-                <h2>Links</h2>
-                <strong>1st Term Exam Routine:</strong>
-                <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/">https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a><br>
-                <strong>2nd Term Exam Routine:</strong>
-                <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/">https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a><br>
-            </div>
-        </div>
-    </div>
+      </div> 
 </body>
 
 <script type="text/javascript"
