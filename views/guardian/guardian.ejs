@@ -22,7 +22,7 @@
       <h1 class="display-4">List of Students</h1>
       <p class="lead">(Click on a student to view details)</p>
       <% } else { %>
-      <h1 class="display-4">No students to dsplay!</h1>
+      <h1 class="display-4">No students to display!</h1>
       <% } %>
 
       <div class="panel-group" id="accordion">
@@ -41,7 +41,7 @@
             </h4>
           </div>
           <div id="collapse<%= i %>" class="panel-collapse collapse in">
-            <div class="container mt-3 p-2 card">
+            <div class="container mt-3 p-2 card mb-3">
               <div class="col-lg-2 dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                   eDiary <span class="caret"></span>
@@ -86,11 +86,12 @@
                 </div>
 
                 <div class="col-md-8 mb-4 col-12">
-                  <iframe
+                  <!-- <iframe
                     src="guardian-notice.html"
                     style="height: 100%; width: 100%; border: 5px solid #ddd"
                   >
-                  </iframe>
+                  </iframe> -->
+                  <%- include('../partials/guardian-notice', {num: i, notices: students[i].notices}); %>
                 </div>
               </div>
 

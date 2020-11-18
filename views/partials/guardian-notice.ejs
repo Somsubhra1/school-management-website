@@ -1,0 +1,77 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link active"
+      id="assignment<%= num %>-tab"
+      data-toggle="tab"
+      href="#assignment<%= num %>"
+      role="tab"
+      aria-controls="home<%= num %>"
+      aria-selected="true"
+      >Assignment</a
+    >
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link"
+      id="remarks<%= num %>-tab"
+      data-toggle="tab"
+      href="#remarks<%= num %>"
+      role="tab"
+      aria-controls="remarks<%= num %>"
+      aria-selected="false"
+      >Remarks</a
+    >
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link"
+      id="notice<%= num %>-tab"
+      data-toggle="tab"
+      href="#notice<%= num %>"
+      role="tab"
+      aria-controls="notice<%= num %>"
+      aria-selected="false"
+      >Notice</a
+    >
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div
+    class="tab-pane fade show active"
+    id="assignment<%= num %>"
+    role="tabpanel"
+    aria-labelledby="assignment<%= num %>-tab"
+  >
+    <h1>Assignment</h1>
+    <img src="https://via.placeholder.com/480x480.png" alt="Assignment Image" />
+    <p>
+      Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section
+      and look at the navigation bar while scrolling!
+    </p>
+  </div>
+  <div class="tab-pane fade" id="remarks<%= num %>" role="tabpanel" aria-labelledby="remarks<%= num %>-tab">
+    <h1>Remarks</h1>
+    <p>
+      Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section
+      and look at the navigation bar while scrolling!
+    </p>
+    <p>
+      Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section
+      and look at the navigation bar while scrolling!
+    </p>
+  </div>
+  <div class="tab-pane fade" id="notice<%= num %>" role="tabpanel" aria-labelledby="notice<%= num %>-tab">
+    <h1>Notice</h1>
+    <% if (notices.length == 0) { %>
+    <p class="lead">No Notices for now!</p>
+    <% } %> <% for( let i = 0; i < notices.length; i++ ) { %>
+    <strong><%= notices[i].date.toDateString() %></strong>
+    <ol>
+      <% for( let j = 0; j < notices[i].body.length; j++ ) { %>
+      <li><%= notices[i].body[j] %></li>
+      <% } %>
+    </ol>
+    <% } %>
+  </div>
+</div>
