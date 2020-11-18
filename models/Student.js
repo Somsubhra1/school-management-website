@@ -11,6 +11,10 @@ const StudentSchema = new Schema({
   name: String,
   class_name: String,
   joined_year: Number,
+  outstandingBill: {
+    type: Number,
+    default: 0,
+  },
 
   isActive: {
     type: Boolean,
