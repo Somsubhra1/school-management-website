@@ -27,13 +27,14 @@
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">eDiary
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Marks</a></li>
-                      <li><a href="#">Attendance</a></li>
-                      <li><a href="#">Holiday Calender</a></li>
-                      <li><a href="#">Dress code</a></li>
-                      <li><a href="#">Time Table</a></li>
+                      <li><a data-toggle="modal" href="#marksModal">Marks</a></li>
+                      <li><a data-toggle="modal" href="#attendModal">Attendance</a></li>
+                      <li><a data-toggle="modal" href="#holidayModal">Holiday Calender</a></li>
+                      <li><a data-toggle="modal" href="#dressModal">Dress code</a></li>
+                      <li><a data-toggle="modal" href="#timeModal">Time Table</a></li>
                     </ul>
                 </div>
+                
                 <h1 class="display-4 text-center">Student Name 1</h1>
                 <p class="lead text-center">
                     <strong>Class</strong> - III <strong>Section</strong> - A <strong>Roll</strong> - 17
@@ -199,11 +200,11 @@
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">eDiary
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Marks</a></li>
-                      <li><a href="#">Attendance</a></li>
-                      <li><a href="#">Holiday Calender</a></li>
-                      <li><a href="#">Dress code</a></li>
-                      <li><a href="#">Time Table</a></li>
+                        <li><a data-toggle="modal" href="#marksModal">Marks</a></li>
+                        <li><a data-toggle="modal" href="#attendModal">Attendance</a></li>
+                        <li><a data-toggle="modal" href="#holidayModal">Holiday Calender</a></li>
+                        <li><a data-toggle="modal" href="#dressModal">Dress code</a></li>
+                        <li><a data-toggle="modal" href="#timeModal">Time Table</a></li>
                     </ul>
                 </div>
                 <h1 class="display-4 text-center">Student Name 2</h1>
@@ -359,7 +360,142 @@
             </div>
           </div>
         </div>
-      </div> 
+    </div> 
+    <!-- Marks Modal-->
+    <div class="modal fade" id="marksModal" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Marks Detail</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Assignments Submitted</th>
+                                <th>Submission Date</th>
+                                <th>Score</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Maths</td>
+                                <td>20/01/2020</td>
+                                <td>80/100</td>
+                                <td>Good</td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>20/01/2020</td>
+                                <td>90/100</td>
+                                <td>Very Good</td>
+                            </tr>
+                            <tr>
+                                <td>Chemistry</td>
+                                <td>20/01/2020</td>
+                                <td>60/100</td>
+                                <td>Late submission and incomplete</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Attendence Modal -->
+    <div class="modal fade" id="attendModal" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Attendance Detail</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Assignments Submitted</th>
+                                <th>Submission Date</th>
+                                <th>Score</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Maths</td>
+                                <td>20/01/2020</td>
+                                <td>80/100</td>
+                                <td>Good</td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>20/01/2020</td>
+                                <td>90/100</td>
+                                <td>Very Good</td>
+                            </tr>
+                            <tr>
+                                <td>Chemistry</td>
+                                <td>20/01/2020</td>
+                                <td>60/100</td>
+                                <td>Late submission and incomplete</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Holiday Modal -->
+    <div class="modal fade" id="holidayModal" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Holiday List</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dress Code -->
+    <div class="modal fade" id="dressModal" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Dress Code</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Time Table -->
+    <div class="modal fade" id="timeModal" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Time Table</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script type="text/javascript"
