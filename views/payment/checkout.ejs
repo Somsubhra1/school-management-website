@@ -41,15 +41,11 @@
               </tr>
               <tr>
                 <td>OrderID</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>PaymentID</td>
-                <td></td>
+                <td><%=orderId  %> </td>
               </tr>
             </table>
           </div>
-          <button class="btn btn-warning btn-block">Make Payment</button>
+          <button id="rzp-button1" class="btn btn-warning btn-block">Make Payment</button>
         </div>
       </div>
     </div>
@@ -70,5 +66,53 @@
       integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
       crossorigin="anonymous"
     ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+      var options = {
+        key: "<%= key %>", // Enter the Key ID generated from the Dashboard
+        amount: "<%= amount %>", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        currency: "INR",
+        name: "<%= studentData.name %>",
+        description: "Transaction for <%= studentData.name %> fees",
+        image: "https://example.com/your_logo",
+        order_id: "<%= orderId %>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        handler: function (response) {
+          // alert(response.razorpay_payment_id);
+          // alert(response.razorpay_order_id);
+          // alert(response.razorpay_signature);
+          const data = {
+            name: "<%= studentData.name %>",
+            orderId: "<%= orderId %>",
+            paymentId: response.razorpay_payment_id,
+            signature: response.razorpay_signature,
+            studentId: "<%= studentData._id %>"
+          };
+          axios
+            .post("/guardian/students/payment/verify", data)
+            .then((result) => {
+              // console.log(result);
+              if (result.data.success) {
+                // window.location.href = "/?success=1";
+                document.getElementById("rzp-button1").style.display = "none";
+              }
+            })
+            .catch((err) => {});
+          // console.log(data);
+        },
+      };
+      var rzp1 = new Razorpay(options);
+      document.getElementById("rzp-button1").onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+      };
+    </script>
   </body>
 </html>

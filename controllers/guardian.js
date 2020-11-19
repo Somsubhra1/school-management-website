@@ -9,7 +9,7 @@ const showGuardianDashboard = async (req, res) => {
     .exec();
   students = students.filter((student) => student.guardian != null);
 
-  console.log(students);
+  // console.log(students);
 
   res.render("guardian/guardian", { students });
 };
