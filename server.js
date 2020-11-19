@@ -4,11 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
-const {
-  ensureAuthenticated,
-  isGuardian,
-  isAdmin,
-} = require("./middlewares/auth");
+const { ensureAuthenticated, isGuardian, isAdmin } = require("./middlewares/auth");
 
 require("dotenv/config");
 
@@ -70,20 +66,14 @@ app.get("/", (req, res) => {
 app.use("/auth", require("./routes/auth"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(
-    "/guardian",
-    [ensureAuthenticated, isGuardian],
-    require("./routes/guardian")
-  );
-  app.use(
-    "/guardian/students",
-    [ensureAuthenticated, isGuardian],
-    require("./routes/student")
-  );
+  app.use("/guardian", [ensureAuthenticated, isGuardian], require("./routes/guardian"));
+  app.use("/guardian/students", [ensureAuthenticated, isGuardian], require("./routes/student"));
+  app.use("/payment", [ensureAuthenticated, isGuardian], require("./routes/payment"));
   app.use("/admin", [ensureAuthenticated, isAdmin], require("./routes/admin"));
 } else {
   app.use("/guardian", require("./routes/guardian"));
   app.use("/guardian/students", require("./routes/student"));
+  app.use("/payment", require("./routes/payment"));
   app.use("/admin", require("./routes/admin"));
 }
 
