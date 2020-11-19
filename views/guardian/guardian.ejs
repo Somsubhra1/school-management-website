@@ -206,6 +206,7 @@
                       </tfoot>
                     </table>
                   </div>
+                  <% if (students[i].outstandingBill > 0) { %>
                   <form action="/guardian/students/payment" method="POST">
                     <input
                       type="text"
@@ -216,6 +217,7 @@
                     />
                     <button type="submit" class="btn btn-warning btn-block mb-3">Pay Fees</button>
                   </form>
+                  <% } %>
                 </div>
               </div>
               <div class="row mb-4 justify-content-center">
