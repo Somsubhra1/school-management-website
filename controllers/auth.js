@@ -69,10 +69,24 @@ const register = (req, res) => {
 };
 
 const login = (req, res, next) => {
-  passport.authenticate("local", {
-    successRedirect: "/auth/dashboard",
-    failureRedirect: "/",
-    failureFlash: true,
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    } else if (!user) {
+      return res.redirect("/");
+    } else {
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+        console.log(user);
+        if (user.type === "administrator") {
+          return res.redirect("/admin");
+        } else if (user.type === "guardian") {
+          return res.redirect("/guardian");
+        }
+      });
+    }
   })(req, res, next);
 };
 
