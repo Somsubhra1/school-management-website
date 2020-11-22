@@ -14,36 +14,42 @@
     />
 
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" 
-      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" 
-      crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
 
     <title>Admin dashboard</title>
   </head>
   <body>
-    <%- include("../partials/navbar") %> <%- include("../partials/login-modal") %>
-    <% include("../partials/messages") %>
+    <%- include("../partials/navbar") %> <%- include("../partials/login-modal") %> <%
+    include("../partials/messages") %>
 
     <div class="container mt-5 pt-3">
       <div class="row">
         <div class="col-6">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="dashboardCheck" onclick="postDashboardToggle(this)" checked>
-            <label class="form-check-label" for="dashboardCheck">
-              Dashboard
-            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="dashboardCheck"
+              onclick="postDashboardToggle(this)"
+              checked
+            />
+            <label class="form-check-label" for="dashboardCheck"> Dashboard </label>
           </div>
         </div>
         <div class="col-6">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="noticeBoardCheck">
-            <label class="form-check-label" for="noticeBoardCheck">
-              Notice Board
-            </label>
+            <input class="form-check-input" type="checkbox" value="" id="noticeBoardCheck" />
+            <label class="form-check-label" for="noticeBoardCheck"> Notice Board </label>
           </div>
         </div>
       </div>
-      
+
       <div class="row mt-3" id="notice-row">
         <div class="input-group mb-2 mr-sm-2">
           <div class="input-group-prepend">
@@ -51,10 +57,14 @@
           </div>
           <textarea class="form-control" name="notice_1" id="notice_1" rows="2"></textarea>
           <div class="input-group-append">
-            <span class="input-group-text bg-danger text-white" onclick="deleteNoticeRow(this)"><i class="fas fa-times"></i></span>
+            <span class="input-group-text bg-danger text-white" onclick="deleteNoticeRow(this)"
+              ><i class="fas fa-times"></i
+            ></span>
           </div>
         </div>
-        <button class="btn btn-primary mt-2 mr-2" id="addMore"><i class="fas fa-plus"></i> Add more Notice rows</button>
+        <button class="btn btn-primary mt-2 mr-2" id="addMore">
+          <i class="fas fa-plus"></i> Add more Notice rows
+        </button>
         <button class="btn btn-success mt-2 ml-2" id="postNotice">Post Notice</button>
       </div>
 
@@ -65,46 +75,67 @@
             <button class="btn btn-outline-warning btn-sm" id="unselectAll">Un-Select All</button>
           </div>
           <div class="col-6">
-            <div class="form-inline
-            ">
+            <div class="form-inline">
               <label class="sr-only" for="inputName">Name</label>
-              <input type="text" class="form-control mb-2 mr-sm-2" id="inputName" placeholder="Search Guardian">
-    
+              <input
+                type="text"
+                class="form-control mb-2 mr-sm-2"
+                id="inputName"
+                placeholder="Search Guardian"
+              />
+
               <button type="button" class="btn btn-primary mb-2" id="search-btn">Search</button>
             </div>
           </div>
         </div>
-  
+
         <div class="row mt-4 justify-content-center">
           <div class="col-lg-12">
             <div class="table-responsive">
               <table class="table" id="admin-panel-table">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>
-                    </th>
-                    <th>
-                      <button type="button" class="btn btn-light btn-block" id="student-col" onclick="sortTable(1)">
+                      <button
+                        type="button"
+                        class="btn btn-light btn-block"
+                        id="student-col"
+                        onclick="sortTable(1)"
+                      >
                         <strong>Student</strong> <i class="float-right fas fa-sort"></i>
                       </button>
                     </th>
                     <th>
-                      <button type="button" class="btn btn-light btn-block" id="guardian-col" onclick="sortTable(2)">
+                      <button
+                        type="button"
+                        class="btn btn-light btn-block"
+                        id="guardian-col"
+                        onclick="sortTable(2)"
+                      >
                         <strong>Guardian</strong> <i class="float-right fas fa-sort"></i>
                       </button>
                     </th>
                     <th>
-                      <button type="button" class="btn btn-light btn-block" id="class-col" onclick="sortTable(3)">
+                      <button
+                        type="button"
+                        class="btn btn-light btn-block"
+                        id="class-col"
+                        onclick="sortTable(3)"
+                      >
                         <strong>Class</strong> <i class="float-right fas fa-sort"></i>
+                      </button>
+                    </th>
+                    <th>
+                      <button type="button" class="btn btn-light btn-block" id="payment-col">
+                        <strong>Fees Payment</strong>
                       </button>
                     </th>
                   </tr>
                 </thead>
                 <tbody id="table-body">
                   <tr>
-                    <td colspan="4">
-                      Loading...!
-                    </td>
+                    <td colspan="4">Loading...!</td>
                   </tr>
                 </tbody>
               </table>
@@ -112,7 +143,64 @@
           </div>
         </div>
       </section>
+    </div>
 
+    <!-- Payment modal -->
+    <div
+      class="modal fade"
+      id="paymentModal"
+      tabindex="-1"
+      aria-labelledby="paymentModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paymentModalLabel">Make Payment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/admin/payment" method="POST">
+              <div class="form-group d-none">
+                <label for="payment_student_id">ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="payment_student_id"
+                  aria-describedby="emailHelp"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label for="payment_name">Student Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="payment_name"
+                  aria-describedby="emailHelp"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label for="payment_amount">Amount</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="payment_amount"
+                  aria-describedby="emailHelp"
+                  disabled
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Payment Done</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
@@ -133,6 +221,5 @@
     ></script>
 
     <script src="js/admin-panel.js"></script>
-
   </body>
 </html>

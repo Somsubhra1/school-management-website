@@ -7,8 +7,25 @@ function buildHtmlRow(data) {
       <td>${data.name}</td>
       <td>${data.guardian.name}</td>
       <td>${data.class_name}</td>
+      <td><button class="btn btn-warning btn-block" 
+      onclick="openPaymentModal('${data._id}')"
+      ${data.outstandingBill === 0 ? "disabled" : ""}>Make Payment</button></td>
     </tr>
   `;
+}
+
+function openPaymentModal(id) {
+  console.log(id);
+  fetch("/admin/payment/" + id)
+    .then((response) => response.json())
+    .then((students) => {
+      console.log(students);
+      document.querySelector("#payment_student_id").value = students._id;
+      document.querySelector("#payment_name").value = students.name;
+      document.querySelector("#payment_amount").value = students.outstandingBill;
+    })
+    .catch((err) => console.log(err));
+  $("#paymentModal").modal("show");
 }
 
 function buildHtmlTable(data) {
