@@ -26,6 +26,12 @@ function openPaymentModal(id) {
     })
     .catch((err) => console.log(err));
   $("#paymentModal").modal("show");
+
+  $("#paymentModal").on("hide.bs.modal", (e) => {
+    getData().then((data) => {
+      document.getElementById("table-body").innerHTML = buildHtmlTable(data);
+    });
+  });
 }
 
 function buildHtmlTable(data) {
