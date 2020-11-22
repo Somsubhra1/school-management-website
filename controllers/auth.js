@@ -79,7 +79,6 @@ const login = (req, res, next) => {
         if (err) {
           return next(err);
         }
-        console.log(user);
         if (user.type === "administrator") {
           return res.redirect("/admin");
         } else if (user.type === "guardian") {

@@ -7,18 +7,6 @@ const PaymentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "student",
   },
-  orderId: {
-    type: String,
-    required: true,
-  },
-  paymentId: {
-    type: String,
-    required: true,
-  },
-  signature: {
-    type: String,
-    required: true,
-  },
   isPaid: {
     type: Boolean,
     required: true,
