@@ -41,7 +41,7 @@
               </tr>
               <tr>
                 <td>OrderID</td>
-                <td><%=orderId  %> </td>
+                <td><%=orderId %></td>
               </tr>
             </table>
           </div>
@@ -93,19 +93,17 @@
             orderId: "<%= orderId %>",
             paymentId: response.razorpay_payment_id,
             signature: response.razorpay_signature,
-            studentId: "<%= studentData._id %>"
+            studentId: "<%= studentData._id %>",
           };
           axios
             .post("/guardian/students/payment/verify", data)
             .then((result) => {
-              // console.log(result);
               if (result.data.success) {
                 // window.location.href = "/?success=1";
                 document.getElementById("rzp-button1").style.display = "none";
               }
             })
             .catch((err) => {});
-          // console.log(data);
         },
       };
       var rzp1 = new Razorpay(options);

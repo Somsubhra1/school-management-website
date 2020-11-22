@@ -15,7 +15,6 @@ function buildHtmlRow(data) {
 }
 
 function openPaymentModal(id) {
-  console.log(id);
   fetch("/admin/payment/" + id)
     .then((response) => response.json())
     .then((students) => {
@@ -70,7 +69,6 @@ document.getElementById("search-btn").addEventListener("click", () => {
           </tr>
         `;
       } else {
-        // document.getElementById("table-body").innerHTML = buildHtmlTable(data);
         document.querySelectorAll("#table-body tr").forEach((row) => {
           const id = row.firstElementChild.firstElementChild.id;
           if (data.filter((d) => d._id === id).length > 0) {

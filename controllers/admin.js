@@ -16,30 +16,20 @@ const search = async (req, res) => {
       match: { name: { $regex: "^" + guardian, $options: "i" } },
     });
   } else {
-    students = await Student.find()
-      .populate("guardian", { name: 1, username: 1 })
-      .exec();
+    students = await Student.find().populate("guardian", { name: 1, username: 1 }).exec();
   }
 
   students = students.filter((student) => student.guardian != null);
 
-  // console.log(students);
   res.json(students);
 };
 
 const studentNotice = async (req, res) => {
-  // console.log(req.body);
   const students = req.body.students;
   const noticesArr = req.body.notices;
-  // console.log(students);
-  // console.log(noticesArr);
 
   try {
-    await Student.updateMany(
-      { _id: { $in: students } },
-      { $push: { notices: { body: noticesArr } } }
-    );
-    // console.log(updatedStudentNotices);
+    await Student.updateMany({ _id: { $in: students } }, { $push: { notices: { body: noticesArr } } });
   } catch (error) {
     console.log(error);
   }
@@ -57,12 +47,7 @@ const globalNotice = (req, res) => {
 };
 
 const getStudent = async (req, res) => {
-  // console.log(req.params.id);
-  const student = await Student.findOne(
-    { _id: req.params.id },
-    { name: 1, outstandingBill: 1 }
-  );
-  // console.log(student);
+  const student = await Student.findOne({ _id: req.params.id }, { name: 1, outstandingBill: 1 });
   res.json(student);
 };
 

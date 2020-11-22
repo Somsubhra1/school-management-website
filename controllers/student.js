@@ -40,8 +40,6 @@ const studentPaymentCheckout = async (req, res) => {
 
   const student = await Student.findById(studentId);
 
-  // console.log(student);
-
   const amount = student.outstandingBill * 100;
 
   const { id: orderId } = await instance.orders.create({
@@ -56,8 +54,6 @@ const studentPaymentCheckout = async (req, res) => {
     amount,
     studentData: student,
   });
-
-  // console.log(order);
 };
 
 const studentPaymentVerify = async (req, res) => {
@@ -65,7 +61,6 @@ const studentPaymentVerify = async (req, res) => {
 
   const payment = await instance.payments.fetch(paymentId);
 
-  // console.log(payment);
   if (payment) {
     const newPayment = new Payment({
       student: studentId,
