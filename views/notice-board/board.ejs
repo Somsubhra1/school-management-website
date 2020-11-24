@@ -1,13 +1,18 @@
 <div class="board p-5" id="notice-board">
   <div class="row mb-3">
     <div class="headline d-flex">Notice Board</div>
-    <div class="date d-flex">dd-MMMM-yy</div>
+    <div class="date d-flex">
+      <% const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      %> <%= notice.date.getDate() + "-" + months[notice.date.getMonth()] + "-" + notice.date.getFullYear() %>
+    </div>
   </div>
   <div class="notice">
     <ol>
-      <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
-      <li>We thank all the patrons for the continuous support</li>
-      <li>We hope to get yor love in futre as well</li>
+      <% for( let i = 0; i < notice.body.length; i++ ) { %>
+      <li><%= notice.body[i] %></li>
+      <% } %>
+      <!-- <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
+      <li>We hope to get yor love in futre as well</li> -->
     </ol>
   </div>
 </div>

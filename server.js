@@ -59,8 +59,10 @@ mongoose
   .then(() => console.log(`MongoDB connected successfully`))
   .catch((err) => console.log(`Error connecting mongodb ` + err));
 
-app.get("/", (req, res) => {
-  res.render("index");
+const Notice = require("./models/Notice");
+app.get("/", async (req, res) => {
+  const notice = await Notice.findOne({}).sort({ date: -1 });
+  res.render("index", { notice });
 });
 
 app.use("/auth", require("./routes/auth"));
