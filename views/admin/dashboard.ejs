@@ -65,7 +65,7 @@
         <button class="btn btn-primary mt-2 mr-2" id="addMore">
           <i class="fas fa-plus"></i> Add more Notice rows
         </button>
-        <button class="btn btn-success mt-2 ml-2" id="postNotice">Post Notice</button>
+        <button type="submit" class="btn btn-success mt-2 ml-2" id="postNotice">Post Notice</button>
       </div>
 
       <section id="postDashboard">
@@ -200,7 +200,9 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" onclick="paymentFormSubmit()" class="btn btn-primary" data-dismiss="modal">Payment Done</button>
+            <button type="submit" onclick="paymentFormSubmit()" class="btn btn-primary" data-dismiss="modal">
+              Payment Done
+            </button>
           </div>
         </div>
       </div>
@@ -229,7 +231,6 @@
       function paymentFormSubmit() {
         document.getElementById("paymentForm").submit();
       }
-
     </script>
   </body>
 </html>
