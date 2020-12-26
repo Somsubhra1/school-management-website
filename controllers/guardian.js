@@ -9,6 +9,9 @@ const showGuardianDashboard = async (req, res) => {
     .exec();
   students = students.filter((student) => student.guardian != null);
 
+  students.forEach((student) => student.notices.sort((a, b) => b.date - a.date));
+
+  // students.forEach((student) => console.log(student.notices));
   res.render("guardian/guardian", { students });
 };
 
