@@ -21,6 +21,7 @@ const studentRegister = (req, res) => {
       name: req.body.name,
       class_name: req.body.class_name,
       joined_year: req.body.joined_year,
+      outstandingBill: 500,
     });
 
     newStudent
