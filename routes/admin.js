@@ -6,6 +6,8 @@ const {
   globalNotice,
   getStudent,
   payFees,
+  addUserPage,
+  addUser,
 } = require("../controllers/admin");
 
 router.get("/", showDashboard);
@@ -19,5 +21,8 @@ router.post("/notice/global", globalNotice);
 router.get("/payment/:id", getStudent);
 
 router.post("/payment", payFees);
+
+router.get("/add", addUserPage);
+router.post("/add", addUser);
 
 module.exports = router;

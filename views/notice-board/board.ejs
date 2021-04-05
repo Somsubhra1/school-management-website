@@ -1,9 +1,12 @@
 <div class="board p-5" id="notice-board">
   <div class="row mb-3">
     <div class="headline d-flex">Notice Board</div>
+
+    <% if (notice!= null) { %>
     <div class="date d-flex">
-      <% const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      %> <%= notice.date.getDate() + "-" + months[notice.date.getMonth()] + "-" + notice.date.getFullYear() %>
+      <% const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug",
+      "Sep", "Oct", "Nov", "Dec"]; %> <%= notice.date.getDate() + "-" +
+      months[notice.date.getMonth()] + "-" + notice.date.getFullYear() %>
     </div>
   </div>
   <div class="notice">
@@ -12,7 +15,8 @@
       <li><%= notice.body[i] %></li>
       <% } %>
       <!-- <li>This is to notify that <strong>Rampurhat Sreeja</strong> has bagged the prestigious award</li>
-      <li>We hope to get yor love in futre as well</li> -->
+        <li>We hope to get yor love in futre as well</li> -->
     </ol>
+    <% } %>
   </div>
 </div>
