@@ -13,11 +13,13 @@
     />
   </head>
   <body>
-    <%- include("../partials/navbar") %> <%- include("../partials/login-modal") %> <%
-    include("../partials/messages") %>
+    <%- include("../partials/navbar") %> <%- include("../partials/login-modal")
+    %> <% include("../partials/messages") %>
 
     <div class="container mt-5 pt-3">
-      <a class="btn btn-primary mb-2 mt-2" href="/guardian/students/register">Add Student</a>
+      <a class="btn btn-primary mb-2 mt-2" href="/guardian/students/register"
+        >Add Student</a
+      >
       <% if (students.length>0) { %>
       <h1 class="display-4">List of Students</h1>
       <p class="lead">(Click on a student to view details)</p>
@@ -43,17 +45,44 @@
           <div id="collapse<%= i %>" class="panel-collapse collapse in">
             <div class="container mt-3 p-2 card mb-3">
               <div class="col-lg-2 dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                <button
+                  class="btn btn-primary dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
+                >
                   eDiary <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <a class="dropdown-item" data-toggle="modal" href="#marksModal<%= i %>">Marks</a>
-                  <a class="dropdown-item" data-toggle="modal" href="#attendModal<%= i %>">Attendance</a>
-                  <a class="dropdown-item" data-toggle="modal" href="#holidayModal<%= i %>"
+                  <a
+                    class="dropdown-item"
+                    data-toggle="modal"
+                    href="#marksModal<%= i %>"
+                    >Marks</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    data-toggle="modal"
+                    href="#attendModal<%= i %>"
+                    >Attendance</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    data-toggle="modal"
+                    href="#holidayModal<%= i %>"
                     >Holiday Calender</a
                   >
-                  <a class="dropdown-item" data-toggle="modal" href="#dressModal<%= i %>">Dress code</a>
-                  <a class="dropdown-item" data-toggle="modal" href="#timeModal<%= i %>">Time Table</a>
+                  <a
+                    class="dropdown-item"
+                    data-toggle="modal"
+                    href="#dressModal<%= i %>"
+                    >Dress code</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    data-toggle="modal"
+                    href="#timeModal<%= i %>"
+                    >Time Table</a
+                  >
                 </ul>
               </div>
 
@@ -71,12 +100,16 @@
                       <div class="card" style="width: 100%">
                         <div class="card-body">
                           <h2 class="card-title">Pickup Details</h2>
-                          <h6 class="card-subtitle mb-2 text-muted">Pickup Person</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">
+                            Pickup Person
+                          </h6>
                           <p class="card-text">
                             <strong>Name - </strong> Arijt Bhowmik <br />
                             <strong>Contact No. - </strong> 1234567890
                           </p>
-                          <h6 class="card-subtitle mb-2 text-muted">Pickup Time</h6>
+                          <h6 class="card-subtitle mb-2 text-muted">
+                            Pickup Time
+                          </h6>
                           <p class="card-text">4:30 pm</p>
                           <a href="#" class="card-link btn btn-primary">Edit</a>
                         </div>
@@ -91,7 +124,8 @@
                     style="height: 100%; width: 100%; border: 5px solid #ddd"
                   >
                   </iframe> -->
-                  <%- include('../partials/guardian-notice', {num: i, notices: students[i].notices}); %>
+                  <%- include('../partials/guardian-notice', {num: i, notices:
+                  students[i].notices}); %>
                 </div>
               </div>
 
@@ -102,19 +136,23 @@
                     <strong>Subject 1</strong>
                     <ol>
                       <li>
-                        This is to notify that <strong>this school</strong> has bagged the prestigious
-                        award
+                        This is to notify that <strong>this school</strong> has
+                        bagged the prestigious award
                       </li>
-                      <li>We thank all the patrons for the continuous support</li>
+                      <li>
+                        We thank all the patrons for the continuous support
+                      </li>
                       <li>We hope to get yor love in futre as well</li>
                     </ol>
                     <strong>Subject 2</strong>
                     <ol>
                       <li>
-                        This is to notify that <strong>this school</strong> has bagged the prestigious
-                        award
+                        This is to notify that <strong>this school</strong> has
+                        bagged the prestigious award
                       </li>
-                      <li>We thank all the patrons for the continuous support</li>
+                      <li>
+                        We thank all the patrons for the continuous support
+                      </li>
                       <li>We hope to get yor love in futre as well</li>
                     </ol>
                   </div>
@@ -215,7 +253,12 @@
                       id="studentid"
                       value="<%= students[i]._id %>"
                     />
-                    <button type="submit" class="btn btn-warning btn-block mb-3">Pay Fees</button>
+                    <button
+                      type="submit"
+                      class="btn btn-warning btn-block mb-3"
+                    >
+                      Pay Fees
+                    </button>
                   </form>
                   <% } %>
                 </div>
@@ -224,11 +267,13 @@
                 <div class="card col-lg-12">
                   <h2>Links</h2>
                   <strong>1st Term Exam Routine:</strong>
-                  <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/"
+                  <a
+                    href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/"
                     >https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a
                   ><br />
                   <strong>2nd Term Exam Routine:</strong>
-                  <a href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/"
+                  <a
+                    href="https://getbootstrap.com/docs/4.4/utilities/stretched-link/"
                     >https://getbootstrap.com/docs/4.4/utilities/stretched-link/</a
                   ><br />
                 </div>
@@ -277,7 +322,13 @@
                 </table>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -322,7 +373,13 @@
                 </table>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -336,7 +393,13 @@
               </div>
               <div class="modal-body"></div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -350,7 +413,13 @@
               </div>
               <div class="modal-body"></div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -364,7 +433,13 @@
               </div>
               <div class="modal-body"></div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -372,6 +447,8 @@
         <% } %>
       </div>
     </div>
+
+    <%- include("partials/footer") %>
 
     <script
       type="text/javascript"

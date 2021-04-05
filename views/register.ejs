@@ -21,10 +21,9 @@
     <title>School Management Website</title>
   </head>
   <body>
-    <div class="container mt-5 pt-5">
-      <%- include("partials/navbar") %>
-      <% include("partials/messages") %>
-      
+    <div class="container mt-5 pt-5 mb-4">
+      <%- include("partials/navbar") %> <% include("partials/messages") %>
+
       <form id="loginForm" action="/auth/register" method="POST">
         <div class="form-group">
           <label for="userTypeInput">User Type</label>
@@ -69,6 +68,8 @@
         <button type="submit" class="btn btn-primary">Register</button>
       </form>
     </div>
+
+    <%- include("partials/footer") %>
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
     <script
